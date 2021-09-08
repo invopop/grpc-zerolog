@@ -54,8 +54,8 @@ func NewUnaryServerInterceptorWithLogger(log *zerolog.Logger) grpc.UnaryServerIn
 				LogIncomingCall(ctx, logger, info.FullMethod, now, req)
 				LogStatusError(logger, err)
 				logger.Msg(UnaryMessageDefault)
-			} else if log.Info().Enabled() {
-				logger := log.Info()
+			} else if log.Debug().Enabled() {
+				logger := log.Debug()
 				LogIncomingCall(ctx, logger, info.FullMethod, now, req)
 				LogResponse(logger, resp)
 				logger.Msg(UnaryMessageDefault)
